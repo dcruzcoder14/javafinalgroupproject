@@ -1,0 +1,39 @@
+package ca.sheridancollege.finalgroup.service;
+
+import ca.sheridancollege.finalgroup.domain.Product;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
+
+public class ProductServiceImpl implements ProductService {
+
+	@Override
+	public Flux<Product> getProducts() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Mono<Product> getProduct(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Mono<Product> save(Product product) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Mono<Product> updateProduct(Product product) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Mono<Void> deleteProduct(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

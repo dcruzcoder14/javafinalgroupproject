@@ -1,0 +1,5 @@
+spring.h2.console.enabled=true
+spring.datasource.url=r2dbc:h2:file:///~/db/testdb
+spring.data.r2dbc.repositories.enabled=true
+spring.datasource.platform=h2
+

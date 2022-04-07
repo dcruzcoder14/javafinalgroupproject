@@ -1,0 +1,9 @@
+package ca.sheridancollege.finalgroup.repositories;
+
+import org.springframework.data.r2dbc.repository.R2dbcRepository;
+
+import ca.sheridancollege.finalgroup.domain.Product;
+
+public interface ProductRepository extends R2dbcRepository<Product, Long> {
+
+}

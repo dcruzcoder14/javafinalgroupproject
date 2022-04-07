@@ -1,0 +1,48 @@
+package ca.sheridancollege.finalgroup.web.rest;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import ca.sheridancollege.finalgroup.domain.Product;
+import ca.sheridancollege.finalgroup.service.ProductService;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
+
+@RestController
+@RequestMapping("/api")
+public class ProductContoller {
+	@Autowired 
+	private ProductService productService;
+	
+	@GetMapping("/products")
+	public Flux<Product> getProducts() {
+		return productService.getProducts();
+	}
+	
+	@PostMapping("/products")
+	public Mono<Product> addProduct(@RequestBody Product product) {
+		return productService.save(product);
+	}
+	
+	@GetMapping("/products/{id}")
+	public Mono<Product> getProductById(@PathVariable(value = "id") Long productId) {
+		return productService.getProduct(productId);
+	}
+	
+	@PutMapping("/products/")
+	public Mono<Product> updateProduct(@RequestBody Product product) {
+		return productService.updateProduct(product);
+	}
+	
+	@DeleteMapping("/products/{id}")
+	public Mono<Void> deleteProduct(@PathVariable(value = "id") Long productId) {
+		return productService.deleteProduct(productId);
+	}
+}

@@ -1,0 +1,29 @@
+package ca.sheridancollege.finalgroup.bootstrap;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.stereotype.Component;
+
+import ca.sheridancollege.finalgroup.domain.Product;
+import ca.sheridancollege.finalgroup.service.ProductService;
+
+@Component
+public class ProductBootstrap implements CommandLineRunner {
+	
+	@Autowired
+	private ProductService productService;
+
+	// TODO comment this method for production
+	@Override
+	public void run(String... args) throws Exception {
+		Product p1 = new Product("Apple", 12.65, "Edible fruit or snack");
+		Product p2 = new Product("Iphone 11", 200.65, "Newest piece of Apple technology");
+		Product p3 = new Product("Dishwasher", 649.99, "Used for cleaning dishes with ease");
+		
+		productService.save(p1);
+		productService.save(p2);
+		productService.save(p3);
+
+	}
+
+}

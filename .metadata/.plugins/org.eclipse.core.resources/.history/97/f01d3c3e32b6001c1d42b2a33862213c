@@ -1,0 +1,47 @@
+package ca.sheridancollege.finalgroup.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import ca.sheridancollege.finalgroup.domain.Product;
+import ca.sheridancollege.finalgroup.repositories.ProductRepository;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
+
+@Service
+public class ProductServiceImpl implements ProductService {
+
+	@Autowired
+	private ProductRepository productRepository;
+	
+	@Override
+	public Flux<Product> getProducts() {
+		// TODO Auto-generated method stub
+		return productRepository.findAll();
+	}
+
+	@Override
+	public Mono<Product> getProduct(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Mono<Product> save(Product product) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Mono<Product> updateProduct(Product product) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Mono<Void> deleteProduct(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

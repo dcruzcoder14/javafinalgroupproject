@@ -1,0 +1,6 @@
+package ca.sheridancollege.finalgroup.domain;
+
+@Entity
+public class Product {
+	
+}

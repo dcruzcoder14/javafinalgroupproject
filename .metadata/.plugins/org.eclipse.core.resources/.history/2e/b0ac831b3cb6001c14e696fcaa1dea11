@@ -1,0 +1,12 @@
+package ca.sheridancollege.finalgroup.repositories;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.r2dbc.repository.R2dbcRepository;
+import org.springframework.stereotype.Repository;
+
+import ca.sheridancollege.finalgroup.domain.Product;
+
+@Repository
+public interface ProductRepository extends JpaRepository<Product, Long> {
+
+}
