@@ -53,8 +53,8 @@ getProduct() {
 	}
 
 
-deleteProduct(id: number){
-	this.productService.deleteProdcut(id)
+deleteProduct(id: string){
+	this.productService.deleteProduct(id)
 		.subscribe(data => {
 			console.log(data)
 			this.getProduct()
@@ -63,13 +63,14 @@ deleteProduct(id: number){
 
 //routing to another(update) component -
 //passing the product object will populate all thie field in update comoponent
-updateProduct(product: Product){
-	this.router.navigate(['update', product]);
-	
+updateProduct(product: Product) {
+	this.router.navigate(['update', product]); 
 }
 
-//this will navigate to read router compononet
-productDetails(id: number){
+
+//this will navigate to read router component
+productDetails(id: string){
 	this.router.navigate(['details', id]); 
 }
+
 }

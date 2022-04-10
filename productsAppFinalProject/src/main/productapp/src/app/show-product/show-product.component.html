@@ -15,8 +15,9 @@
 					<tr *ngFor="let product of productList">
 						<td>{{product.productName}}</td>
 						<td>{{product.price}}</td>
-						<td><button (click)="deleteProduct(product.id)" class="btn btn-danger">Delete</button>
-						    <button (click)="updateProduct(product)" class="btn btn-info" style="margin-left: 10px">Update</button>
+						<td>
+							<button (click)="deleteProduct(product.id)" class="btn btn-danger">Delete</button>
+	  		 				<button (click)="updateProduct(product)" class="btn btn-success" style="margin-left: 10px">Update</button> 
 						    <button (click)="productDetails(product.id)" class="btn btn-info" style="margin-left: 10px" >Details</button>
 						</td>    
 					</tr>

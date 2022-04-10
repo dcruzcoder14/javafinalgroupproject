@@ -12,13 +12,13 @@ import { ActivatedRoute } from '@angular/router'
 })
 export class ReadProductComponent implements OnInit {
 	
-	@Input() id: number = 0;
+	@Input() id: string = "";
 
 	public productName: string = ""
 	public productDesc: string = ""
 	public price:number = 0.0
 	
-product = new Product(this.id, this.productName, this.price, this.productDesc)
+	product = new Product(this.id, this.productName, this.price, this.productDesc)
 	
 
   constructor(private route: ActivatedRoute, private router:Router,
@@ -36,7 +36,8 @@ product = new Product(this.id, this.productName, this.price, this.productDesc)
   }
   
   list(){
-	this.router.navigate(['products']) //go back to show procut component
-}
+	this.router.navigate(['products']) //go back to show product component
+  }
+  
 
 }

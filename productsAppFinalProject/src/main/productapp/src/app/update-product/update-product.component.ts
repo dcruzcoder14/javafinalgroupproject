@@ -2,9 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ProductService } from '../product.service';
 import { Product } from '../product';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
 import { ActivatedRoute } from '@angular/router'
-import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
 	selector: 'app-update-product',
@@ -12,35 +10,28 @@ import { FormGroup, FormControl } from '@angular/forms';
 	styleUrls: ['./update-product.component.css']
 })
 export class UpdateProductComponent implements OnInit {
-	 id:number = 0
-	 product:Product = new Product()
+	 id:string = "";
+	 product:Product = new Product();
 
-
-
-	projectForm = new FormGroup({
-		productName: new FormControl(''),
-		price: new FormControl(),
-		productDesc: new FormControl(''),
-		// projectDate: new FormControl(''),
-
-	});
-
-
-	constructor(private router: Router,
-		private productService: ProductService, private route: ActivatedRoute) { }
+	constructor(private route: ActivatedRoute, private router: Router,
+		private productService: ProductService) { }
 
 	ngOnInit(): void {
-		this.id = this.route.snapshot.params['id']
 		this.product = new Product()
-	
+		this.id = this.route.snapshot.params['id']
+		
+		this.productService.getProduct(this.id)
+		.subscribe(data => {
+			this.product = data;
+		})
 	}
 
 
 	updateProduct() {
-		this.productService.updateProduct(this.projectForm.value)
+		this.productService.updateProduct(this.product)
 			.subscribe((data: any) => {
 				console.log(data)
-			
+				this.product = new Product();
 				this.gotoList();
 			})
 
